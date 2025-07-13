@@ -35,17 +35,19 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-ambient relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-floating relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Floating geometric shapes */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full animate-pulse-slow"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-purple-500/10 rounded-full animate-bounce-slow"></div>
-        <div className="absolute bottom-40 left-20 w-20 h-20 bg-cyan-500/10 rounded-full animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-28 h-28 bg-pink-500/10 rounded-full animate-pulse-slow"></div>
+        {/* Floating orbs with new animation */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-blue-500/20 rounded-full animate-float-orb"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-sky-400/15 rounded-full animate-float-orb-delayed"></div>
+        <div className="absolute bottom-40 left-20 w-20 h-20 bg-cyan-500/25 rounded-full animate-float-orb-slow"></div>
+        <div className="absolute bottom-20 right-10 w-28 h-28 bg-blue-400/18 rounded-full animate-float-orb-reverse"></div>
+        <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-sky-300/20 rounded-full animate-float-orb-fast"></div>
+        <div className="absolute top-1/4 right-1/3 w-12 h-12 bg-blue-300/30 rounded-full animate-float-orb-gentle"></div>
         
-        {/* Grid pattern */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 bg-dot-pattern opacity-10"></div>
         
         {/* Floating code elements */}
         {floatingElements.map((element, index) => (

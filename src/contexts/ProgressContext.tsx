@@ -65,7 +65,24 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
   ) => {
     if (!user) {
       // eslint-disable-next-line no-console
-      console.error('[ProgressContext] No user found');
+      console.error('[ProgressContext] No user found - cannot save to database');
+      console.log('[ProgressContext] User object:', user);
+      console.log('[ProgressContext] Auth state check - user exists:', !!user);
+      return;
+    }
+
+    // Check environment variables
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+    console.log('[ProgressContext] Environment check:', {
+      hasUrl: !!supabaseUrl,
+      hasKey: !!supabaseKey,
+      url: supabaseUrl,
+      keyPresent: !!supabaseKey
+    });
+
+    if (!supabaseUrl || !supabaseKey) {
+      console.error('[ProgressContext] Missing Supabase environment variables');
       return;
     }
 
@@ -73,14 +90,21 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     console.log('[ProgressContext] Marking lesson complete:', { courseSlug, lessonSlug, quizScore, quizTotal });
 
     try {
+      console.log('[ProgressContext] Checking existing progress...');
+
       // First check if we already have this lesson marked complete
-      const { data: existing } = await supabase
+      const { data: existing, error: checkError } = await supabase
         .from('user_progress')
         .select('id')
         .eq('user_id', user.id)
         .eq('course_slug', courseSlug)
         .eq('lesson_slug', lessonSlug)
         .maybeSingle();
+
+      if (checkError) {
+        console.error('[ProgressContext] Error checking existing progress:', checkError);
+        return;
+      }
 
       // eslint-disable-next-line no-console
       console.log('[ProgressContext] Existing progress:', existing);
@@ -96,26 +120,39 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
       };
 
       let error;
+      console.log('[ProgressContext] Progress data to save:', progressData);
+
       if (existing?.id) {
+        console.log('[ProgressContext] Updating existing record...');
         // Update existing record
         const result = await supabase
           .from('user_progress')
           .update(progressData)
           .eq('id', existing.id);
         error = result.error;
+        console.log('[ProgressContext] Update result:', { success: !error, error });
       } else {
+        console.log('[ProgressContext] Inserting new record...');
         // Insert new record
         const result = await supabase
           .from('user_progress')
           .insert([progressData]);
         error = result.error;
+        console.log('[ProgressContext] Insert result:', { success: !error, error });
       }
 
       if (error) {
-        // eslint-disable-next-line no-console
-        console.error('[ProgressContext] Error marking complete:', error);
+        console.error('[ProgressContext] Database operation failed:', {
+          error: error.message,
+          details: error.details,
+          hint: error.hint,
+          code: error.code,
+          operation: existing?.id ? 'update' : 'insert'
+        });
         throw error;
       }
+
+      console.log('[ProgressContext] Database operation successful!');
 
       // eslint-disable-next-line no-console
       console.log('[ProgressContext] Successfully marked complete');

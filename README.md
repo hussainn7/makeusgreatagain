@@ -26,7 +26,12 @@ cd <YOUR_PROJECT_NAME>
 # Step 3: Install the necessary dependencies.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Set up environment variables
+# Create a .env file in the root directory with:
+# VITE_SUPABASE_URL=https://your-project-id.supabase.co
+# VITE_SUPABASE_ANON_KEY=your-anon-key-here
+
+# Step 5: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 

@@ -1,0 +1,48 @@
+{
+  "title": "Boolean Logic",
+  "meta": { "duration": "45 min" },
+  "sections": [
+    { "type": "objectives", "items": [
+      "Understand what Boolean values (True / False) are",
+      "Learn the three main Boolean operators: and, or, not",
+      "Combine multiple conditions in if statements"
+    ]},
+    { "type": "explanation", "heading": "Booleans in Python", "paragraphs": [
+      "A Boolean is a type of value that can be only one of two things: True or False.",
+      "Boolean values are the building blocks of decision-making in Python."
+    ]},
+    { "type": "table", "heading": "Boolean Operators", "headers": ["Operator","Meaning","Example","Result"], "rows": [
+      ["and","True if both are true","(5 > 3) and (2 < 4)","True"],
+      ["or","True if at least one is true","(5 > 3) or (2 > 4)","True"],
+      ["not","Reverses a value","not (5 > 3)","False"]
+    ]},
+    { "type": "explanation", "heading": "Real-life analogy", "bullets": [
+      "and → I will go outside if it’s sunny AND I have free time.",
+      "or → I will eat dessert if I have ice cream OR cake.",
+      "not → I will go to bed if I’m not tired."
+    ]},
+    { "type": "explanation", "heading": "Try it", "bullets": [
+      "Make two variables: is_sunny = True, have_free_time = False.",
+      "Use if with and to check if both are true before printing \"Go outside.\"",
+      "Use or to check if at least one is true before printing \"Relax time!\"",
+      "Use not to check if a value is false and print a message.",
+      "Change the values of the variables and see how the results change."
+    ]},
+    { "type": "summary", "bullets": [
+      "Boolean values: True and False",
+      "and → needs both conditions true",
+      "or → needs at least one condition true",
+      "not → reverses the result"
+    ], "next": { "label": "Lesson 3: Comparison Operators", "href": "/tutorials/python-beginner/lesson/02-comparison-operators" } }
+  ],
+  "quiz": {
+    "questions": [
+      { "id": "q1", "prompt": "What does the and operator require to return True?", "choices": ["At least one condition is true","Both conditions are true","All conditions are false","None of the above"], "correctIndex": 1 },
+      { "id": "q2", "prompt": "Which operator would you use if you want a condition to be true when at least one part is true?", "choices": ["and","or","not","if"], "correctIndex": 1 },
+      { "id": "q3", "prompt": "True or False: not True equals False.", "choices": ["True","False"], "correctIndex": 0 },
+      { "id": "q4", "prompt": "What is the result of (5 > 2) and (3 > 4)?", "choices": ["True","False","Error","None"], "correctIndex": 1 }
+    ]
+  }
+}
+
+

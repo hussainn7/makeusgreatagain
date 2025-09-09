@@ -1,0 +1,118 @@
+{
+  "title": "First Commands in Action",
+  "meta": { "duration": "30 min", "noCoding": true },
+  "sections": [
+    {
+      "type": "objectives",
+      "items": [
+        "Learn basic Linux commands for navigation and file management",
+        "Practice moving around directories and viewing files",
+        "Become confident using the terminal for simple tasks"
+      ]
+    },
+    {
+      "type": "table",
+      "heading": "Basic Commands to Get Started",
+      "headers": ["Command", "What it Does"],
+      "rows": [
+        ["pwd", "Print working directory (shows your current location)"],
+        ["ls", "List files and folders in the current directory"],
+        ["cd foldername", "Change into a folder/directory"],
+        ["cd ..", "Go back to the previous directory"],
+        ["clear", "Clear the terminal screen"],
+        ["history", "Show a list of previously typed commands"]
+      ]
+    },
+    {
+      "type": "tip",
+      "text": "Linux commands are case-sensitive. Always type them exactly."
+    },
+    {
+      "type": "practice",
+      "heading": "Practice",
+      "steps": [
+        "Open your terminal.",
+        "Check where you are: pwd",
+        "List the files in your current directory: ls",
+        "Navigate into a folder (e.g., Documents): cd Documents",
+        "Go back to the previous directory: cd ..",
+        "Clear your terminal screen: clear",
+        "Review your previous commands: history"
+      ]
+    },
+    {
+      "type": "tip",
+      "text": "Extra Practice: Try combining commands. For example: cd Documents && ls - This moves into the Documents folder and lists its files immediately."
+    },
+    {
+      "type": "table",
+      "heading": "Key Terms",
+      "headers": ["Term", "Meaning"],
+      "rows": [
+        ["Directory / Folder", "A container for files and other directories"],
+        ["Path", "Location of a file or folder in the file system"],
+        ["Command", "Instruction you type into the terminal"],
+        ["Home Directory", "Your personal folder in Linux (~)"]
+      ]
+    },
+    {
+      "type": "funfact",
+      "text": "Using just a few commands, you can fully navigate your Linux system without ever touching a mouse!"
+    },
+    {
+      "type": "summary",
+      "bullets": [
+        "Basic commands like pwd, ls, cd, clear, and history are essential for navigating and exploring Linux.",
+        "Practice using these commands to feel confident in the terminal.",
+        "Mastering these basics is the first step to powerful Linux skills."
+      ],
+      "next": {
+        "label": "Next Lesson: File Management Basics",
+        "href": "/tutorials/linux-essentials/lesson/06-file-management-basics"
+      }
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "What does ls do?",
+        "choices": [
+          "Lists files and folders",
+          "Clears the terminal",
+          "Prints working directory",
+          "Deletes a file"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "q2",
+        "prompt": "Which command takes you back to the previous directory?",
+        "choices": [
+          "cd foldername",
+          "pwd",
+          "cd ..",
+          "ls"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "True or False: Linux commands are case-sensitive.",
+        "choices": ["True", "False"],
+        "correctIndex": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "What does history show?",
+        "choices": [
+          "Files in your folder",
+          "Previous commands you typed",
+          "Your current folder",
+          "System uptime"
+        ],
+        "correctIndex": 1
+      }
+    ]
+  }
+}

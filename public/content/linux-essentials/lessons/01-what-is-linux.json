@@ -1,0 +1,99 @@
+{
+    "title": "What is Linux?",
+    "meta": { "duration": "60 min", "noCoding": true },
+    "sections": [
+      {
+        "type": "objectives",
+        "items": [
+          "Understand what Linux is",
+          "Learn why Linux exists",
+          "Become familiar with basic Linux terms (e.g., kernel, terminal, OS)"
+        ]
+      },
+      {
+        "type": "explanation",
+        "heading": "What is Linux?",
+        "paragraphs": [
+          "Linux is an operating system (OS) — like Windows or macOS, but open-source.",
+          "It’s built on the Unix philosophy: small programs that do one thing well.",
+          "Created by Linus Torvalds in 1991, it started as a hobby project.",
+          "Today, Linux powers a wide range of systems."
+        ],
+        "bullets": [
+          "Servers (hosting websites and apps)",
+          "Android phones",
+          "Supercomputers",
+          "IoT devices (smart home gadgets, Raspberry Pi)"
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "What Can You Do with Linux?",
+        "headers": ["Area", "Example Uses"],
+        "rows": [
+          ["Servers", "Host websites and apps"],
+          ["Programming", "Write and run code"],
+          ["IoT Devices", "Smart home gadgets, Raspberry Pi projects"],
+          ["Cybersecurity", "Run security testing tools"],
+          ["Supercomputing", "Power research simulations and AI"]
+        ]
+      },
+      {
+        "type": "table",
+        "heading": "Key Terms",
+        "headers": ["Term", "Meaning"],
+        "rows": [
+          ["OS (Operating System)", "Software that manages a computer’s hardware and software"],
+          ["Kernel", "Core part of Linux that controls hardware and system processes"],
+          ["Open-Source", "Software anyone can view, modify, and distribute"],
+          ["Terminal", "A text-based interface to control your computer"],
+          ["Unix", "A powerful operating system that inspired Linux"]
+        ]
+      },
+      {
+        "type": "funfact",
+        "text": "96% of the world’s top 1 million servers run Linux!"
+      },
+      {
+        "type": "summary",
+        "bullets": [
+          "Linux is an open-source operating system built on Unix philosophy.",
+          "It powers servers, Android devices, IoT devices, and supercomputers.",
+          "You can control Linux using the terminal and install coding tools like VS Code."
+        ],
+        "next": {
+          "label": "Mini Lesson: Using the Terminal & Installing Coding Platforms",
+          "href": "/tutorials/linux-essentials/lesson/01a-terminal-setup"
+        }
+      }
+    ],
+    "quiz": {
+      "questions": [
+        {
+          "id": "q1",
+          "prompt": "What is Linux?",
+          "choices": ["A type of snake", "An operating system", "A programming language", "A web browser"],
+          "correctIndex": 1
+        },
+        {
+          "id": "q2",
+          "prompt": "Who created Linux?",
+          "choices": ["Richard Stallman", "Linus Torvalds", "Steve Jobs", "Bill Gates"],
+          "correctIndex": 1
+        },
+        {
+          "id": "q3",
+          "prompt": "What is the terminal used for?",
+          "choices": ["Playing games", "Typing commands to control the system", "Watching movies", "Running Windows programs"],
+          "correctIndex": 1
+        },
+        {
+          "id": "q4",
+          "prompt": "True or False: Linux is open-source.",
+          "choices": ["True", "False"],
+          "correctIndex": 0
+        }
+      ]
+    }
+  }
+  

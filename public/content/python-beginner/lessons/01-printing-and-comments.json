@@ -1,0 +1,51 @@
+{
+  "title": "Printing & Comments",
+  "meta": { "duration": "45 min" },
+  "sections": [
+    { "type": "objectives", "items": [
+      "Understand what the print() function does",
+      "Learn how to add comments in Python",
+      "Know the difference between single-line and multi-line comments"
+    ]},
+    { "type": "explanation", "heading": "Printing", "paragraphs": [
+      "The print() function displays text or values on the screen — like saying 'show this to the user'."
+    ], "bullets": [
+      "print(\"Hello, world!\")",
+      "# Output: Hello, world!"
+    ]},
+    { "type": "explanation", "heading": "Comments", "paragraphs": [
+      "Comments are notes for humans. Python ignores them when running code. Use them to explain your code or temporarily disable lines."
+    ]},
+    { "type": "explanation", "heading": "Single-line comments", "bullets": [
+      "# This is a single-line comment",
+      "print(\"Hello\")  # This is also a comment"
+    ]},
+    { "type": "explanation", "heading": "Multi-line comments", "bullets": [
+      "\"\"\"",
+      "This is a multi-line comment",
+      "It can span several lines",
+      "\"\"\"",
+      "print(\"Done!\")"
+    ]},
+    { "type": "explanation", "heading": "Try it", "bullets": [
+      "Write a print() statement that says your name.",
+      "Add a single-line comment explaining what the code does.",
+      "Add a multi-line comment about your favorite hobby."
+    ]},
+    { "type": "summary", "bullets": [
+      "Use print() to display messages",
+      "Use # for single-line and triple quotes for multi-line comments",
+      "Comments do not change how code runs"
+    ], "next": { "label": "Lesson 3: Variables & Data Types", "href": "/tutorials/python-beginner/lesson/01-variables-and-data-types" } }
+  ],
+  "quiz": {
+    "questions": [
+      { "id": "q1", "prompt": "What does the print() function do in Python?", "choices": ["Saves your file","Displays text or values","Adds comments","Deletes code"], "correctIndex": 1 },
+      { "id": "q2", "prompt": "Which symbol starts a single-line comment in Python?", "choices": ["//","<!--","#","/*"], "correctIndex": 2 },
+      { "id": "q3", "prompt": "True or False: Comments change how your program runs.", "choices": ["True","False"], "correctIndex": 1 },
+      { "id": "q4", "prompt": "Which of these is a valid multi-line comment?", "choices": ["/* This is a comment */","\"\"\" This is a comment \"\"\"","<!-- This is a comment -->","// This is a comment"], "correctIndex": 1 }
+    ]
+  }
+}
+
+

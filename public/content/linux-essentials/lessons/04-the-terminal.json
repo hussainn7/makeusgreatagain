@@ -1,0 +1,133 @@
+{
+  "title": "The Terminal",
+  "meta": { "duration": "25 min", "noCoding": true },
+  "sections": [
+    {
+      "type": "objectives",
+      "items": [
+        "Understand what the terminal (or shell) is",
+        "Learn the basic structure of a terminal prompt",
+        "Become familiar with common first commands"
+      ]
+    },
+    {
+      "type": "explanation",
+      "heading": "What is the Terminal?",
+      "paragraphs": [
+        "The terminal is where you type commands to control Linux.",
+        "Also called the shell, it allows you to interact with the system using text instead of a graphical interface."
+      ]
+    },
+    {
+      "type": "explanation",
+      "heading": "Terminal Prompt",
+      "paragraphs": [
+        "Example: user@computer:~$",
+        "user → your username",
+        "computer → the name of your computer", 
+        "~ → your home directory",
+        "$ → indicates the terminal is ready to accept a command"
+      ]
+    },
+    {
+      "type": "table",
+      "heading": "First Commands",
+      "headers": ["Command", "What it Does"],
+      "rows": [
+        ["pwd", "Print working directory (shows where you are)"],
+        ["ls", "List files and folders in the current directory"],
+        ["cd foldername", "Change into a folder/directory"],
+        ["cd ..", "Go back to the previous directory"],
+        ["clear", "Clear the terminal screen"],
+        ["history", "Show a list of commands you typed previously"]
+      ]
+    },
+    {
+      "type": "tip",
+      "text": "Commands are case-sensitive! Always type them exactly."
+    },
+    {
+      "type": "practice",
+      "heading": "Practice",
+      "steps": [
+        "Open your terminal.",
+        "Check where you are: pwd",
+        "List the files in your current directory: ls",
+        "Navigate into a folder (e.g., Documents): cd Documents",
+        "Go back to the previous directory: cd ..",
+        "Clear your terminal screen: clear",
+        "Review your previous commands: history"
+      ]
+    },
+    {
+      "type": "table",
+      "heading": "Key Terms",
+      "headers": ["Term", "Meaning"],
+      "rows": [
+        ["Terminal / Shell", "Text-based interface to control Linux"],
+        ["Prompt", "Symbol that shows the terminal is ready for commands"],
+        ["Home Directory", "Your personal folder in Linux (~)"],
+        ["Command", "Instruction you type into the terminal"]
+      ]
+    },
+    {
+      "type": "funfact",
+      "text": "The terminal is one of the most powerful tools in Linux, and many Linux experts do almost everything through it!"
+    },
+    {
+      "type": "summary",
+      "bullets": [
+        "The terminal is a text-based interface to control Linux.",
+        "The prompt shows your username, computer name, and current directory.",
+        "Basic commands like pwd, ls, cd, clear, and history help you navigate and explore Linux."
+      ],
+      "next": {
+        "label": "Next Lesson: First Commands in Action",
+        "href": "/tutorials/linux-essentials/lesson/05-first-commands-in-action"
+      }
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "What is the terminal used for?",
+        "choices": [
+          "Watching videos",
+          "Typing commands to control Linux",
+          "Playing games",
+          "Surfing the web"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "In the prompt user@computer:~$, what does ~ represent?",
+        "choices": [
+          "Root directory",
+          "Home directory",
+          "Desktop",
+          "Trash folder"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "What does pwd do?",
+        "choices": [
+          "Print files",
+          "Print working directory",
+          "Delete a folder",
+          "Clear the terminal"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "True or False: Commands in Linux are case-sensitive.",
+        "choices": ["True", "False"],
+        "correctIndex": 0
+      }
+    ]
+  }
+}

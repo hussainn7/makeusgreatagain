@@ -1,0 +1,113 @@
+{
+  "title": "Using the Terminal & Installing Coding Platforms",
+  "meta": { "duration": "45 min", "noCoding": false },
+  "sections": [
+    {
+      "type": "objectives",
+      "items": [
+        "Learn basic terminal commands",
+        "Understand how to navigate Linux using the terminal",
+        "Set up a coding platform (like VS Code) on Linux"
+      ]
+    },
+    {
+      "type": "explanation",
+      "heading": "Using the Terminal",
+      "paragraphs": [
+        "The terminal is a text-based interface that lets you control your computer by typing commands.",
+        "It can be faster and more powerful than using a mouse (GUI), especially for programming tasks."
+      ],
+      "bullets": [
+        "`pwd` — Show current folder (Print Working Directory)",
+        "`ls` — List files and folders",
+        "`cd <folder>` — Change directory",
+        "`mkdir <name>` — Create a new folder",
+        "`touch <file>` — Create a new file",
+        "`rm <file>` — Delete a file"
+      ]
+    },
+    {
+      "type": "explanation",
+      "heading": "Installing a Coding Platform (VS Code Example)",
+      "paragraphs": [
+        "To code efficiently on Linux, you can install VS Code — a popular code editor.",
+        "Visit the VS Code website and download the Linux installer (.deb for Debian/Ubuntu, .rpm for Fedora).",
+        "Then, install it using the terminal."
+      ],
+      "bullets": [
+        "`sudo dpkg -i code_<version>.deb` — Install on Debian/Ubuntu",
+        "`sudo rpm -i code-<version>.rpm` — Install on Fedora"
+      ]
+    },
+    {
+      "type": "explanation",
+      "heading": "Optional: Install Git for Version Control",
+      "paragraphs": [
+        "Git helps you track changes in code and collaborate with others.",
+        "Install Git via the terminal:"
+      ],
+      "bullets": [
+        "`sudo apt update`",
+        "`sudo apt install git`",
+        "`git --version` — Check if Git was installed"
+      ]
+    },
+    {
+      "type": "summary",
+      "bullets": [
+        "The terminal allows you to control your system with typed commands.",
+        "Common commands include navigating folders and creating files.",
+        "VS Code can be installed on Linux using `.deb` or `.rpm` packages.",
+        "Git is a helpful tool for coding and collaboration."
+      ],
+      "next": {
+        "label": "Next Lesson: Why Linux Exists",
+        "href": "/tutorials/linux-essentials/lesson/02-why-linux-exists"
+      }
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "What is the terminal used for?",
+        "choices": [
+          "Playing games",
+          "Typing commands to control the system",
+          "Watching movies",
+          "Running Windows programs"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Which command creates a new folder?",
+        "choices": ["cd", "pwd", "mkdir", "touch"],
+        "correctIndex": 2
+      },
+      {
+        "id": "q3",
+        "prompt": "Which command lists the files in a folder?",
+        "choices": ["ls", "rm", "git", "dpkg"],
+        "correctIndex": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "What does `sudo apt install git` do?",
+        "choices": [
+          "Installs the Git tool",
+          "Deletes Git",
+          "Updates your entire OS",
+          "Creates a new Git repository"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "q5",
+        "prompt": "True or False: You can install VS Code on Linux using the terminal.",
+        "choices": ["True", "False"],
+        "correctIndex": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "title": "Why Linux Exists",
+  "meta": { "duration": "30 min", "noCoding": true },
+  "sections": [
+    {
+      "type": "objectives",
+      "items": [
+        "Understand why Linux was created",
+        "Learn about the GNU Project and its goals",
+        "Become familiar with the Linux kernel"
+      ]
+    },
+    {
+      "type": "explanation",
+      "heading": "The Problem in the 1980s",
+      "paragraphs": [
+        "In the 1980s, Unix was a powerful operating system, but it was expensive and proprietary.",
+        "Only universities, governments, and large companies could afford to use it."
+      ]
+    },
+    {
+      "type": "explanation",
+      "heading": "GNU Project",
+      "paragraphs": [
+        "Richard Stallman started the GNU Project in 1983 to create a free, Unix-like operating system.",
+        "GNU stands for 'GNU’s Not Unix'.",
+        "The project created free tools like compilers, editors, and libraries, but it still needed a kernel."
+      ]
+    },
+    {
+      "type": "explanation",
+      "heading": "Linux Kernel",
+      "paragraphs": [
+        "In 1991, Linus Torvalds, a Finnish student, released the Linux kernel.",
+        "When combined with GNU tools, it became a fully working operating system: GNU/Linux.",
+        "Today, Linux powers servers, phones (Android), and even supercomputers."
+      ]
+    },
+    {
+      "type": "table",
+      "heading": "Key Terms",
+      "headers": ["Term", "Meaning"],
+      "rows": [
+        ["Unix", "A powerful, proprietary OS from the 1970s"],
+        ["GNU", "Free software project — 'GNU’s Not Unix'"],
+        ["Kernel", "The core of an operating system that manages hardware"],
+        ["Linux Kernel", "Core program of Linux created by Linus Torvalds"],
+        ["Open-Source", "Software anyone can view, modify, and share"]
+      ]
+    },
+    {
+      "type": "funfact",
+      "text": "The combination of GNU tools and the Linux kernel is what makes most Linux distributions today!"
+    },
+    {
+      "type": "summary",
+      "bullets": [
+        "Linux was created because Unix was expensive and closed-source.",
+        "The GNU Project aimed to create a free Unix-like system.",
+        "Linus Torvalds built the missing piece: the Linux kernel.",
+        "Together they formed GNU/Linux, powering millions of devices today."
+      ],
+      "next": {
+        "label": "Next Lesson: Linux Distributions",
+        "href": "/tutorials/linux-essentials/lesson/03-why-linux-is-better"
+      }
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Why was Linux created?",
+        "choices": [
+          "To make computers slower",
+          "To create a free Unix-like system",
+          "To compete with Windows in 1991",
+          "To run video games"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "Who started the GNU Project?",
+        "choices": ["Linus Torvalds", "Richard Stallman", "Steve Jobs", "Bill Gates"],
+        "correctIndex": 1
+      },
+      {
+        "id": "q3",
+        "prompt": "What does GNU stand for?",
+        "choices": [
+          "Great New Unix",
+          "GNU’s Not Unix",
+          "General Network Utility",
+          "Global Number Unit"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "q4",
+        "prompt": "True or False: Linux is exactly the same as Unix.",
+        "choices": ["True", "False"],
+        "correctIndex": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "title": "Simple Math Operations",
+  "meta": { "duration": "45 min" },
+  "sections": [
+    { "type": "objectives", "items": [
+      "Perform basic math in Python",
+      "Learn arithmetic operators (+, -, *, /, //, %, **)",
+      "Know the difference between division and integer division"
+    ]},
+    { "type": "explanation", "heading": "Python as a calculator", "paragraphs": [
+      "Python can do math just like a calculator. Use arithmetic operators to work with numbers."
+    ]},
+    { "type": "table", "heading": "Main operators", "headers": ["Symbol","Name","Example","Result"], "rows": [
+      ["+","Addition","5 + 3","8"],
+      ["-","Subtraction","5 - 3","2"],
+      ["*","Multiplication","5 * 3","15"],
+      ["/","Division","5 / 2","2.5"],
+      ["//","Integer Division","5 // 2","2"],
+      ["%","Modulus (Remainder)","5 % 2","1"],
+      ["**","Exponent (Power)","2 ** 3","8"]
+    ]},
+    { "type": "explanation", "heading": "Special notes", "bullets": [
+      "/ always returns a float",
+      "// truncates (cuts off) the decimal",
+      "% helps check even/odd (x % 2 == 0)"
+    ]},
+    { "type": "explanation", "heading": "Try it", "bullets": [
+      "Use print() to show results of 7 + 4, 10 - 6, 3 * 8, 20 / 4",
+      "Try 20 // 3 and 20 % 3",
+      "Try 2 ** 5"
+    ]},
+    { "type": "summary", "bullets": [
+      "Python uses operators for math",
+      "/ is division (float), // is integer division, % is remainder",
+      "** is used for powers"
+    ], "next": { "label": "Lesson 5: If/Else Conditions", "href": "/tutorials/python-beginner/lesson/02-control-flow-if-else" } }
+  ],
+  "quiz": {
+    "questions": [
+      { "id": "q1", "prompt": "What is the result of 10 % 4?", "choices": ["2","2.5","4","0"], "correctIndex": 0 },
+      { "id": "q2", "prompt": "Which operator is used for exponent (power) in Python?", "choices": ["^","**","exp()","//"], "correctIndex": 1 },
+      { "id": "q3", "prompt": "True or False: 10 / 5 returns an integer.", "choices": ["True","False"], "correctIndex": 1 },
+      { "id": "q4", "prompt": "Which operator finds the remainder after division?", "choices": ["/","%","//","*"], "correctIndex": 1 }
+    ]
+  }
+}
+
+

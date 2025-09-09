@@ -1,0 +1,57 @@
+{
+  "title": "Mini Lesson: Setting Up Your Coding Environment",
+  "meta": { "duration": "30 min", "noCoding": true },
+  "sections": [
+    { "type": "objectives", "items": [
+      "Learn what a coding environment is",
+      "Choose and install a code editor or platform",
+      "Be ready to run Python code in future lessons"
+    ]},
+    { "type": "explanation", "heading": "What is a coding environment?", "paragraphs": [
+      "A coding environment is where you write and run your code. It’s like the workspace for a programmer. For Python, there are many options — from simple online editors to powerful offline programs."
+    ]},
+    { "type": "explanation", "heading": "Option 1: VS Code (Visual Studio Code)", "paragraphs": [
+      "VS Code is one of the most popular code editors. It works on Windows, Mac, and Linux. It’s great for beginners and professionals.",
+      "Steps to install VS Code:",
+      "1) Visit code.visualstudio.com",
+      "2) Download your OS version",
+      "3) Install and open VS Code",
+      "4) Install the Python extension (search 'Python' in Extensions and click Install)"
+    ]},
+    { "type": "explanation", "heading": "Option 2: Replit (Online)", "paragraphs": [
+      "Replit is a browser-based coding environment — no downloads required. It’s a good choice if you don’t want to install anything yet.",
+      "Steps:",
+      "1) Go to replit.com",
+      "2) Sign up",
+      "3) Create Repl → choose 'Python'",
+      "4) Start typing code and press Run"
+    ]},
+    { "type": "explanation", "heading": "Option 3: IDLE (Comes with Python)", "paragraphs": [
+      "When you install Python on your computer, it comes with a simple editor called IDLE.",
+      "Steps:",
+      "1) Visit python.org/downloads",
+      "2) Download the latest version",
+      "3) During install, check 'Add Python to PATH'",
+      "4) Open IDLE from your applications"
+    ]},
+    { "type": "explanation", "heading": "Which should you choose?", "bullets": [
+      "VS Code → Best for long-term learning, flexible, and professional",
+      "Replit → Quick and easy for trying code without setup",
+      "IDLE → Simple, comes with Python, good for offline use"
+    ]},
+    { "type": "summary", "bullets": [
+      "A coding environment is your workspace for writing and running code",
+      "VS Code, Replit, and IDLE are three beginner-friendly options",
+      "Once you have one, you’re ready for coding lessons"
+    ], "next": { "label": "Lesson 2: Printing & Comments", "href": "/tutorials/python-beginner/lesson/01-printing-and-comments" } }
+  ],
+  "quiz": {
+    "questions": [
+      { "id": "q1", "prompt": "What is a coding environment?", "choices": ["A type of laptop","A place where you write and run code","A website for videos","A game engine"], "correctIndex": 1 },
+      { "id": "q2", "prompt": "Which platform doesn’t require downloads?", "choices": ["VS Code","Replit","IDLE","None"], "correctIndex": 1 },
+      { "id": "q3", "prompt": "True or False: VS Code works on Windows, Mac, and Linux.", "choices": ["True","False"], "correctIndex": 0 }
+    ]
+  }
+}
+
+

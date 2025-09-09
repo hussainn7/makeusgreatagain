@@ -1,11 +1,45 @@
 
-import { ArrowRight, Play, Users, BookOpen, Award, Code2, Sparkles, Zap, Target, TrendingUp, Star, ChevronDown } from 'lucide-react';
+import { ArrowRight, Play, Users, BookOpen, Award, Code2, Sparkles, Zap, Target, TrendingUp, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { supabase } from '../lib/supabase';
 
 const Home = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
+  const [formData, setFormData] = useState({ name: '', email: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ success: false, message: '' });
+  const [waitlistData, setWaitlistData] = useState([]);
+  const [message, setMessage] = useState('');
+
+  // Temporary test function
+  const testSignup = async () => {
+    console.log('Testing Supabase signup...');
+
+    try {
+      const { data, error } = await supabase.auth.signInWithOtp({
+        email: 'foo@bar.example'
+      });
+
+      if (error) {
+        // this will show status, message, and any error_description
+        console.error('❌ signUp error:', {
+          status: error.status,
+          message: error.message,
+          description: (error as any).error_description
+        });
+        alert(`Signup failed: ${error.message}`);
+        return;
+      }
+
+      console.log('✅ signUp success:', data);
+      alert('Signup test successful! Check console for details.');
+    } catch (err) {
+      console.error('🔥 Unexpected error:', err);
+      alert('Fatal error—check console.');
+    }
+  };
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -34,8 +68,47 @@ const Home = () => {
     { icon: Star, delay: '2.5s', duration: '8.5s', size: 'w-6 h-6', color: 'text-cyan-300' },
   ];
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ success: false, message: '' });
+
+    try {
+      const { data, error } = await supabase
+        .from('waitlist')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            created_at: new Date().toISOString()
+          }
+        ]);
+
+      if (error) throw error;
+
+      setSubmitStatus({ 
+        success: true, 
+        message: 'Thanks! You\'ve been added to our waitlist.' 
+      });
+      setFormData({ name: '', email: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus({ 
+        success: false, 
+        message: 'Something went wrong. Please try again.' 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-floating relative overflow-hidden">
+    <div className="bg-gradient-floating relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating orbs with new animation */}
@@ -112,26 +185,100 @@ const Home = () => {
                 <span className="text-cyan-300 font-semibold"> real-world projects</span>.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up animation-delay-1000">
+              {/* Commented out for pre-launch - uncomment when platform is ready */}
+              {/* <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-up animation-delay-1000 mb-8">
                 <Link
                   to="/tutorials"
-                  className="group glass-button bg-gradient-to-r from-blue-500/30 to-purple-500/30 hover:from-blue-500/40 hover:to-purple-500/40 text-white px-10 py-5 rounded-full font-semibold text-lg transition-all duration-500 flex items-center space-x-3 transform hover:scale-105 hover:shadow-2xl animate-pulse-glow"
+                  className="group glass-button bg-gradient-to-r from-blue-500/30 to-purple-500/30 hover:from-blue-500/40 hover:to-purple-500/40 text-white px-10 py-5 rounded-full font-semibold text-lg transition-all duration-500 flex items-center space-x-3 transform hover:scale-105 hover:shadow-2xl animate-pulse-glow border border-blue-400/30 hover:border-blue-300/50"
                 >
                   <span>Start Learning Now</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
                 </Link>
                 
-                <button className="group glass-button bg-transparent hover:bg-white/10 text-white px-10 py-5 rounded-full font-semibold text-lg border border-white/30 transition-all duration-500 flex items-center space-x-3 hover:shadow-xl transform hover:scale-105">
+                <button className="group glass-button bg-transparent hover:bg-white/10 text-white px-10 py-5 rounded-full font-semibold text-lg border border-white/40 hover:border-white/60 transition-all duration-500 flex items-center space-x-3 hover:shadow-xl transform hover:scale-105">
                   <Play className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                   <span>Watch Demo</span>
                 </button>
+              </div> */}
+
+              {/* Test Button - Temporary */}
+              <div className="animate-fade-in-up animation-delay-1200 mb-4">
+                {/* <button
+                  onClick={testSignup}
+                  className="glass-button bg-gradient-to-r from-red-500/30 to-pink-500/30 hover:from-red-500/40 hover:to-pink-500/40 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 border border-red-400/30 hover:border-red-300/50"
+                >
+                  🧪 Test Signup (Temporary)
+                </button> */}
               </div>
 
-              {/* Scroll indicator */}
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <ChevronDown className="w-6 h-6 text-white/60" />
+              {/* Early Access Signup */}
+              <div className="animate-fade-in-up animation-delay-1200">
+                <div className="glass-container rounded-2xl p-8 backdrop-blur-md bg-white/5 border border-white/10 max-w-md mx-auto">
+                  <div className="text-center mb-6">
+                    <div className="inline-flex items-center gap-2 mb-4">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <span className="text-white/80 text-sm font-medium">🚀 Coming Soon</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">Get Early Access</h3>
+                    <p className="text-white/70 text-sm">Be among the first to experience AI-powered learning</p>
+                  </div>
+                  
+                  {submitStatus.success ? (
+                    <div className="text-center py-6">
+                      <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <div className="w-8 h-8 bg-green-400 rounded-full animate-pulse"></div>
+                      </div>
+                      <h4 className="text-lg font-semibold text-white mb-2">Success!</h4>
+                      <p className="text-white/70 text-sm">{submitStatus.message}</p>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                      <div className="relative">
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          placeholder="Your name"
+                          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-blue-400/50 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
+                          required
+                        />
+                      </div>
+                      <div className="relative">
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          placeholder="Enter your email"
+                          className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-blue-400/50 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
+                          required
+                        />
+                      </div>
+                      {submitStatus.message && !submitStatus.success && (
+                        <div className="text-red-400 text-sm text-center">
+                          {submitStatus.message}
+                        </div>
+                      )}
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full glass-button bg-gradient-to-r from-green-500/30 to-emerald-500/30 hover:from-green-500/40 hover:to-emerald-500/40 disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-3 rounded-xl font-semibold text-base transition-all duration-500 flex items-center justify-center space-x-2 transform hover:scale-105 hover:shadow-2xl border border-green-400/30 hover:border-green-300/50"
+                      >
+                        <span>{isSubmitting ? 'Joining...' : 'Join Waitlist'}</span>
+                        {!isSubmitting && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />}
+                      </button>
+                    </form>
+                  )}
+                  
+                  <p className="text-white/50 text-xs text-center mt-4">
+                    No spam, ever. Unsubscribe anytime.
+                  </p>
+                </div>
               </div>
+
+
             </div>
           </div>
 

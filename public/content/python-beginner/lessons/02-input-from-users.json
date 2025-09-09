@@ -1,0 +1,60 @@
+{
+  "title": "Input from Users",
+  "meta": { "duration": "45 min" },
+  "sections": [
+    { "type": "objectives", "items": [
+      "Use input() to collect data from users",
+      "Store input in variables",
+      "Convert input strings to numbers with int() or float()"
+    ]},
+    { "type": "explanation", "heading": "Why input matters", "paragraphs": [
+      "Up until now, your programs just run and display output. Real programs often need interaction, like login prompts, game player info, or calculator inputs. To make programs interactive, we use input()."
+    ]},
+    { "type": "explanation", "heading": "The input() function", "paragraphs": [
+      "input() lets the program pause and wait for the user to type something. Whatever the user types is stored as a string (text) by default.",
+      "Syntax: variable_name = input(\"Message shown to the user: \")"
+    ], "bullets": [
+      "Example:",
+      "name = input(\"What is your name? \")",
+      "print(\"Hello, \" + name)"
+    ]},
+    { "type": "explanation", "heading": "Input is always a string", "paragraphs": [
+      "Even if the user types a number, Python treats it as text. This matters when doing math with input."
+    ], "bullets": [
+      "age = input(\"How old are you? \")",
+      "print(\"You are \" + age + \" years old.\")"
+    ]},
+    { "type": "explanation", "heading": "Converting input", "paragraphs": [
+      "To do math with numbers entered by users, convert the input using int() or float()."
+    ], "bullets": [
+      "num1 = int(input(\"Enter a number: \"))",
+      "num2 = int(input(\"Enter another number: \"))",
+      "print(\"The sum is:\", num1 + num2)"
+    ]},
+    { "type": "explanation", "heading": "Try it", "bullets": [
+      "Type the greeting program and run it.",
+      "Write a program that asks for two numbers and prints their sum.",
+      "Practice converting with int() and float()."
+    ]},
+    { "type": "summary", "bullets": [
+      "input() collects user text",
+      "Input is text by default",
+      "Use int()/float() to convert for math"
+    ], "next": { "label": "Lesson 5: While Loops", "href": "/tutorials/python-beginner/lesson/02-while-loops" } }
+  ],
+  "quiz": {
+    "questions": [
+      { "id": "q1", "prompt": "Which function is used to get input from a user?", "choices": ["get()","input()","print()","scan()"], "correctIndex": 1 },
+      { "id": "q2", "prompt": "What data type is returned by input() by default?", "choices": ["int","float","string","boolean"], "correctIndex": 2 },
+      { "id": "q3", "prompt": "You want to add two numbers entered by the user. Which code is correct?", "choices": [
+        "x = input(\"Enter first: \")\ny = input(\"Enter second: \")\nprint(x + y)",
+        "x = int(input(\"Enter first: \"))\ny = int(input(\"Enter second: \"))\nprint(x + y)",
+        "x = str(input(\"Enter first: \"))\ny = str(input(\"Enter second: \"))\nprint(x + y)",
+        "x = input(\"Enter first: \")\ny = input(\"Enter second: \")\nprint(int(x) + int(y))"
+      ], "correctIndex": 1 },
+      { "id": "q4", "prompt": "True or False: If a user types 12 into input(), Python automatically treats it as the number 12.", "choices": ["True","False"], "correctIndex": 1 }
+    ]
+  }
+}
+
+

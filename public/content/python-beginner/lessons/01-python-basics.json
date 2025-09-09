@@ -1,0 +1,50 @@
+{
+  "title": "What is Python?",
+  "meta": { "duration": "60 min", "noCoding": true },
+  "sections": [
+    { "type": "objectives", "items": [
+      "Understand what Python is",
+      "Learn why Python is useful and where it is used",
+      "Become familiar with basic programming terms (programming language, syntax)"
+    ]},
+    { "type": "explanation", "heading": "What is Python?", "paragraphs": [
+      "Python is a programming language — a way to give instructions to a computer.",
+      "It’s popular because it’s easy to read, powerful, and flexible."
+    ], "bullets": [
+      "Easy to read (syntax is similar to English)",
+      "Powerful (used in many companies and industries)",
+      "Flexible (web, data, ML/AI, automation, games)"
+    ]},
+    { "type": "table", "heading": "What Can You Do with Python?", "headers": ["Area", "Example Uses"], "rows": [
+      ["Web Development", "Websites like Instagram use Python"],
+      ["Data Science", "Analyzing data, making graphs"],
+      ["Machine Learning & AI", "Smart assistants, recommendation systems"],
+      ["Automation", "Make computers do boring tasks"],
+      ["Game Development", "Simple 2D and 3D games"]
+    ]},
+    { "type": "table", "heading": "Key Terms", "headers": ["Term", "Meaning"], "rows": [
+      ["Programming", "Giving instructions to a computer"],
+      ["Python", "A popular, beginner-friendly programming language"],
+      ["Syntax", "Rules for how you write code (like grammar)"],
+      ["Interpreter", "Tool that reads and runs your Python code"]
+    ]},
+    { "type": "funfact", "text": "Python was named after Monty Python, not the snake." },
+    { "type": "summary", "bullets": [
+      "Python is a beginner-friendly programming language.",
+      "It is used for websites, apps, data science, automation, and more.",
+      "Learning Python is a great first step into the world of coding!"
+    ], "next": { "label": "Mini Lesson: Setting Up Your Coding Environment", "href": "/tutorials/python-beginner/lesson/01-setup-environment" } }
+  ],
+  "quiz": {
+    "questions": [
+      { "id": "q1", "prompt": "What is Python?", "choices": ["A type of snake","A web browser","A programming language","A search engine"], "correctIndex": 2 },
+      { "id": "q2", "prompt": "Why do many people like to use Python?", "choices": ["It is hard to read","It is only for games","It is easy to learn","It only works on Apple computers"], "correctIndex": 2 },
+      { "id": "q3", "prompt": "Which of the following is NOT something Python can do?", "choices": ["Build websites","Cook food","Analyze data","Help create video games"], "correctIndex": 1 },
+      { "id": "q4", "prompt": "What is “syntax” in programming?", "choices": ["A spelling mistake","Rules for how to write code","A type of computer","A funny word"], "correctIndex": 1 },
+      { "id": "q5", "prompt": "True or False: Python was named after a snake.", "choices": ["True","False"], "correctIndex": 1 }
+    ]
+  }
+}
+
+
+

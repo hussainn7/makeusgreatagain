@@ -1,0 +1,112 @@
+{
+  "title": "Why Linux is Better",
+  "meta": { "duration": "35 min", "noCoding": true },
+  "sections": [
+    {
+      "type": "objectives",
+      "items": [
+        "Understand the advantages of Linux over other operating systems",
+        "Learn why Linux is preferred for servers, development, and various devices",
+        "Explore real-world use cases of Linux"
+      ]
+    },
+    {
+      "type": "explanation",
+      "heading": "Reasons Linux is Popular",
+      "paragraphs": [
+        "Linux is widely used because it combines power, flexibility, and cost-effectiveness.",
+        "Its open-source nature allows constant improvements from a global community."
+      ],
+      "bullets": [
+        "Free & Open Source ✅ — No license fees, and anyone can modify and share it.",
+        "Stability & Reliability ✅ — Rarely crashes; servers can run for years without rebooting.",
+        "Security ✅ — Fewer viruses and strong user permission system.",
+        "Performance ✅ — Runs efficiently, even on older hardware.",
+        "Flexibility ✅ — Works on devices from supercomputers to Raspberry Pi."
+      ]
+    },
+    {
+      "type": "table",
+      "heading": "What Can You Do with Linux?",
+      "headers": ["Area", "Example Uses"],
+      "rows": [
+        ["Servers", "Web hosting, cloud infrastructure"],
+        ["Security", "Ethical hacking, penetration testing"],
+        ["Supercomputing", "Scientific simulations, AI research"],
+        ["IoT Devices", "Smart home gadgets, Raspberry Pi projects"],
+        ["Development", "Programming, software testing, coding platforms"]
+      ]
+    },
+    {
+      "type": "table",
+      "heading": "Key Terms",
+      "headers": ["Term", "Meaning"],
+      "rows": [
+        ["Stability", "Ability to run continuously without crashing"],
+        ["Permissions", "Rules for who can access files and programs"],
+        ["Performance", "How efficiently a system runs"],
+        ["Flexibility", "Ability to work in many environments and devices"],
+        ["Open-Source Community", "People who contribute and improve Linux software"]
+      ]
+    },
+    {
+      "type": "funfact",
+      "text": "96% of the world’s top 1 million servers run Linux!"
+    },
+    {
+      "type": "summary",
+      "bullets": [
+        "Linux is free, stable, secure, high-performance, and flexible.",
+        "It’s ideal for servers, development, IoT devices, and supercomputers.",
+        "The open-source community keeps Linux evolving and improving."
+      ],
+      "next": {
+        "label": "Next Unit: Basic Linux Commands & Navigation",
+        "href": "/tutorials/linux-essentials/lesson/04-basic-linux-commands"
+      }
+    }
+  ],
+  "quiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "prompt": "Which of these is an advantage of Linux?",
+        "choices": [
+          "Crashes often",
+          "Free & Open Source",
+          "Only works on expensive hardware",
+          "Hard to customize"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "id": "q2",
+        "prompt": "True or False: Linux is more secure than most other operating systems.",
+        "choices": ["True", "False"],
+        "correctIndex": 0
+      },
+      {
+        "id": "q3",
+        "prompt": "What makes Linux flexible?",
+        "choices": [
+          "It can run on devices from supercomputers to Raspberry Pi",
+          "It only works on desktops",
+          "It cannot be modified",
+          "It is only for programmers"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "id": "q4",
+        "prompt": "Why is Linux popular for servers?",
+        "choices": [
+          "It crashes often",
+          "It is stable, secure, and performs well",
+          "It is expensive",
+          "It only runs games"
+        ],
+        "correctIndex": 1
+      }
+    ]
+  }
+}

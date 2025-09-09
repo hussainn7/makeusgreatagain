@@ -1,0 +1,48 @@
+{
+  "title": "While Loops",
+  "meta": { "duration": "45 min" },
+  "sections": [
+    { "type": "objectives", "items": [
+      "Understand what a while loop is",
+      "Write basic while loops to repeat code",
+      "Use conditions to control when a loop stops"
+    ]},
+    { "type": "explanation", "heading": "What is a while loop?", "paragraphs": [
+      "A while loop repeats code as long as a condition is true. It is useful when you do not know in advance how many times to repeat something.",
+      "Syntax:",
+      "while condition:",
+      "    # code to repeat",
+      "If the condition never becomes False, the loop runs forever (an infinite loop)."
+    ]},
+    { "type": "explanation", "heading": "Example 1 – Counting up", "bullets": [
+      "count = 1",
+      "while count <= 5:",
+      "    print(\"Number:\", count)",
+      "    count = count + 1"
+    ]},
+    { "type": "explanation", "heading": "Example 2 – Infinite loop (be careful)", "bullets": [
+      "x = 1",
+      "while x > 0:",
+      "    print(\"This will never stop!\")",
+      "Always update variables inside the loop to eventually stop."
+    ]},
+    { "type": "explanation", "heading": "Try it", "bullets": [
+      "Write a while loop that prints numbers from 10 down to 1.",
+      "Write a while loop that asks the user to type 'exit'. Keep looping until they do."
+    ]},
+    { "type": "summary", "bullets": [
+      "while repeats as long as a condition is true",
+      "Make sure the condition eventually becomes False",
+      "Useful when the number of repetitions is unknown"
+    ], "next": { "label": "Lesson 7: Loops in Python", "href": "/tutorials/python-beginner/lesson/02-loops-in-python" } }
+  ],
+  "quiz": {
+    "questions": [
+      { "id": "q1", "prompt": "What does a while loop do?", "choices": ["Repeats code a fixed number of times","Repeats code as long as a condition is true","Runs code only once","Always runs forever"], "correctIndex": 1 },
+      { "id": "q2", "prompt": "What happens if the condition in a while loop never becomes False?", "choices": ["The loop ends immediately","The program crashes","The loop runs forever","Python skips the loop"], "correctIndex": 2 },
+      { "id": "q3", "prompt": "In the code i=1; while i <= 4: print('Hello'); i = i + 1 — how many times is 'Hello' printed?", "choices": ["3","4","5","Infinite"], "correctIndex": 1 }
+    ]
+  }
+}
+
+

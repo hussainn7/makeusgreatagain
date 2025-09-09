@@ -1,0 +1,30 @@
+{
+  "slug": "python-beginner",
+  "title": "Python (Beginner → Intermediate)",
+  "description": "Structured 7-unit path covering Python basics to projects",
+  "units": [
+    { "order": 1, "title": "Python Basics", "lessons": [
+      { "slug": "01-python-basics", "title": "What is Python?" },
+      { "slug": "01-setup-environment", "title": "Mini Lesson: Setting Up Your Coding Environment" },
+      { "slug": "01-printing-and-comments", "title": "Printing & Comments" },
+      { "slug": "01-variables-and-data-types", "title": "Variables & Data Types" },
+      { "slug": "01-simple-math-operations", "title": "Simple Math Operations" }
+    ]},
+    { "order": 2, "title": "Control Flow", "lessons": [
+      { "slug": "02-control-flow-if-else", "title": "If/Else Conditions" },
+      { "slug": "02-boolean-logic", "title": "Boolean Logic" },
+      { "slug": "02-comparison-operators", "title": "Comparison Operators" },
+      { "slug": "02-input-from-users", "title": "Input from Users" },
+      { "slug": "02-while-loops", "title": "While Loops" },
+      { "slug": "02-loops-in-python", "title": "Loops in Python" }
+    ] },
+    { "order": 3, "title": "Functions", "lessons": [] },
+    { "order": 4, "title": "Data Structures I", "lessons": [] },
+    { "order": 5, "title": "Data Structures II", "lessons": [] },
+    { "order": 6, "title": "File Handling", "lessons": [] },
+    { "order": 7, "title": "Final Projects", "lessons": [] }
+  ]
+}
+
+
+

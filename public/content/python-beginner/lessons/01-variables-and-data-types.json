@@ -1,0 +1,50 @@
+{
+  "title": "Variables & Data Types",
+  "meta": { "duration": "45 min" },
+  "sections": [
+    { "type": "objectives", "items": [
+      "Understand what a variable is and why we use it",
+      "Learn how to create variables in Python",
+      "Recognize basic data types: int, float, str, bool"
+    ]},
+    { "type": "explanation", "heading": "What is a variable?", "paragraphs": [
+      "A variable is like a box that stores information. It has a name (so you can find it later) and a value (the thing inside the box). You can change what’s inside the box anytime."
+    ], "bullets": [
+      "Example names and values:",
+      "age → 15",
+      "name → 'Alex'"
+    ]},
+    { "type": "table", "heading": "Data types", "headers": ["Data Type","Example Value","What it means"], "rows": [
+      ["int","7","Whole numbers (integer)"],
+      ["float","3.14","Numbers with decimals"],
+      ["str","'Hello'","Text (string)"],
+      ["bool","True / False","Yes-or-no values (boolean)"]
+    ]},
+    { "type": "explanation", "heading": "Why data types matter", "bullets": [
+      "You can add two ints together (2 + 3 = 5)",
+      "You can combine two strs (\"Hello\" + \"World\" = \"HelloWorld\")",
+      "You can’t mix types without converting"
+    ]},
+    { "type": "explanation", "heading": "Try it", "bullets": [
+      "Create variables: your name (str), your age (int)",
+      "Create a float for height in meters",
+      "Create a bool for whether you like pizza",
+      "Print each variable, then change one and print again"
+    ]},
+    { "type": "summary", "bullets": [
+      "Variables store information for your program",
+      "Common data types: int, float, str, bool",
+      "Variables can be changed after you create them"
+    ], "next": { "label": "Lesson 4: Simple Math Operations", "href": "/tutorials/python-beginner/lesson/01-simple-math-operations" } }
+  ],
+  "quiz": {
+    "questions": [
+      { "id": "q1", "prompt": "What is a variable in Python?", "choices": ["A storage box for information","A type of loop","A function","A file"], "correctIndex": 0 },
+      { "id": "q2", "prompt": "Which data type would you use for someone’s name?", "choices": ["int","str","float","bool"], "correctIndex": 1 },
+      { "id": "q3", "prompt": "True or False: A variable’s value can be changed after you create it.", "choices": ["True","False"], "correctIndex": 0 },
+      { "id": "q4", "prompt": "Which of these is a boolean value?", "choices": ["'True'","True","'Yes'", "1"], "correctIndex": 1 }
+    ]
+  }
+}
+
+

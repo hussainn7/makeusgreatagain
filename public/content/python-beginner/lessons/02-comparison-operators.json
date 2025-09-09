@@ -1,0 +1,50 @@
+{
+  "title": "Comparison Operators",
+  "meta": { "duration": "45 min" },
+  "sections": [
+    { "type": "objectives", "items": [
+      "Understand what comparison operators are",
+      "Learn the six main comparison operators in Python",
+      "Use comparison results in if statements"
+    ]},
+    { "type": "explanation", "heading": "What are comparison operators?", "paragraphs": [
+      "A comparison operator compares two values and returns a Boolean (True or False)."
+    ]},
+    { "type": "table", "heading": "The Six Main Comparison Operators", "headers": ["Operator","Meaning","Example","Result"], "rows": [
+      ["==","Equal to","5 == 5","True"],
+      ["!=","Not equal to","5 != 3","True"],
+      [">","Greater than","7 > 4","True"],
+      ["<","Less than","3 < 2","False"],
+      [">=","Greater than or equal to","5 >= 5","True"],
+      ["<=","Less than or equal to","4 <= 6","True"]
+    ]},
+    { "type": "explanation", "heading": "Real-life analogy", "bullets": [
+      "== → I will buy it if the price equals 10 dollars.",
+      "!= → I will buy it if it’s not 10 dollars.",
+      "> → I will go running if the temperature is greater than 15°C."
+    ]},
+    { "type": "explanation", "heading": "Try it", "bullets": [
+      "Create a variable score = 85.",
+      "Use if score >= 90: to print \"A grade.\"",
+      "Add elif score >= 80: to print \"B grade.\"",
+      "Add an else: to print \"Below B grade.\"",
+      "Change score to test different results."
+    ]},
+    { "type": "summary", "bullets": [
+      "Comparisons return True or False",
+      "== equals, != not equals",
+      ">, <, >=, <= compare size or order",
+      "Often used with if statements for decision-making"
+    ], "next": { "label": "Lesson 4: Input from Users", "href": "/tutorials/python-beginner/lesson/02-input-from-users" } }
+  ],
+  "quiz": {
+    "questions": [
+      { "id": "q1", "prompt": "What does != mean?", "choices": ["Equal to","Not equal to","Greater than","Less than"], "correctIndex": 1 },
+      { "id": "q2", "prompt": "What is the result of 10 <= 5?", "choices": ["True","False","Error","None"], "correctIndex": 1 },
+      { "id": "q3", "prompt": "True or False: 7 > 7 is True.", "choices": ["True","False"], "correctIndex": 1 },
+      { "id": "q4", "prompt": "Which operator would you use to check if a value is at least 100?", "choices": [">",">=","==","<="], "correctIndex": 1 }
+    ]
+  }
+}
+
+

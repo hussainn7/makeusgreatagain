@@ -87,7 +87,19 @@ const Quizzes = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-ambient pt-24 px-4">
+    <div className="bg-gradient-ambient bg-grid-pattern pt-24 pb-8 px-4 relative overflow-hidden">
+      {/* Coming Soon Overlay */}
+      <div className="absolute inset-0 z-20 flex items-start justify-center">
+        <div className="absolute inset-0 backdrop-blur-2xl bg-black/40" />
+        <div className="relative z-10 text-center pt-28 md:pt-40">
+          <div className="inline-flex items-center gap-2 glass-container rounded-full px-6 py-3 mb-4">
+            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+            <span className="text-white/80 text-sm font-medium">Coming Soon</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-2">Arriving on 8/18</h2>
+          <p className="text-white/70">Get ready for interactive quizzes</p>
+        </div>
+      </div>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

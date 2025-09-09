@@ -1,0 +1,58 @@
+{
+  "title": "If/Else Conditions",
+  "meta": { "duration": "45 min" },
+  "sections": [
+    { "type": "objectives", "items": [
+      "Understand how programs make decisions",
+      "Learn how if, elif, and else work in Python",
+      "Know how indentation affects code execution"
+    ]},
+    { "type": "explanation", "heading": "How computers make decisions", "paragraphs": [
+      "Computers can make decisions by checking conditions (true or false statements). In Python, this is done with if statements."
+    ]},
+    { "type": "explanation", "heading": "Basic structure", "paragraphs": [
+      "if condition:",
+      "    do something",
+      "elif another_condition:",
+      "    do something else",
+      "else:",
+      "    do a different thing"
+    ], "bullets": [
+      "if → checks the first condition",
+      "elif → checks another condition if the first one was false",
+      "else → runs only if all previous conditions are false"
+    ]},
+    { "type": "explanation", "heading": "Example idea (no code yet)", "paragraphs": [
+      "Imagine you’re writing a program for a theme park:",
+      "- If age < 12 → ticket is $5",
+      "- If age is between 12 and 64 → ticket is $10",
+      "- Else (age 65+) → ticket is free"
+    ]},
+    { "type": "explanation", "heading": "Indentation matters", "paragraphs": [
+      "In Python, indentation (spaces at the start of a line) tells Python which code belongs to the if statement. If you forget the indentation, you’ll get an error."
+    ]},
+    { "type": "explanation", "heading": "Try it", "bullets": [
+      "Make a variable called age and give it a number.",
+      "Write an if statement that checks if age is less than 18, and prints \"You are a minor.\"",
+      "Add an else statement that prints \"You are an adult.\"",
+      "Change age and see how the result changes.",
+      "Add an elif for age >= 65 to print \"You are a senior citizen.\""
+    ]},
+    { "type": "summary", "bullets": [
+      "if checks a condition",
+      "elif checks another condition if the previous one was false",
+      "else runs only if all other conditions are false",
+      "Indentation is required in Python to group code"
+    ], "next": { "label": "Lesson 2: Boolean Logic", "href": "/tutorials/python-beginner/lesson/02-boolean-logic" } }
+  ],
+  "quiz": {
+    "questions": [
+      { "id": "q1", "prompt": "What does the if statement do in Python?", "choices": ["Loops through a list","Makes a decision based on a condition","Stores data","Ends the program"], "correctIndex": 1 },
+      { "id": "q2", "prompt": "In an if statement, what keyword is used for “otherwise if”?", "choices": ["else if","elif","elseif","otherwise"], "correctIndex": 1 },
+      { "id": "q3", "prompt": "True or False: Indentation is optional in Python.", "choices": ["True","False"], "correctIndex": 1 },
+      { "id": "q4", "prompt": "What will this code print if x = 10? if x > 20: print(\"Big number\") else: print(\"Small number\")", "choices": ["Big number","Small number"], "correctIndex": 1 }
+    ]
+  }
+}
+
+

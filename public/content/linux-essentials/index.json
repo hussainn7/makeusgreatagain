@@ -1,0 +1,22 @@
+{
+  "slug": "linux-essentials",
+  "title": "Linux Essentials",
+  "description": "Master Linux fundamentals from terminal basics to system administration",
+  "units": [
+    { "order": 1, "title": "Introduction to Linux", "lessons": [
+      { "slug": "01-what-is-linux", "title": "What is Linux?" },
+      { "slug": "01a-terminal-setup", "title": "Mini Lesson: Using the Terminal & Installing Coding Platforms" },
+      { "slug": "02-why-linux-exists", "title": "Why Linux Exists" },
+      { "slug": "03-why-linux-is-better", "title": "Why Linux is Better" }
+    ]},
+    { "order": 2, "title": "First Steps in Linux", "lessons": [
+      { "slug": "04-the-terminal", "title": "The Terminal" },
+      { "slug": "05-first-commands-in-action", "title": "First Commands in Action" }
+    ]},
+    { "order": 3, "title": "File Management", "lessons": [] },
+    { "order": 4, "title": "User Management & Permissions", "lessons": [] },
+    { "order": 5, "title": "Package Management", "lessons": [] },
+    { "order": 6, "title": "System Administration", "lessons": [] },
+    { "order": 7, "title": "Advanced Topics", "lessons": [] }
+  ]
+}

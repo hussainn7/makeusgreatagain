@@ -54,7 +54,7 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-ambient pt-24 px-4">
+    <div className="bg-gradient-ambient bg-grid-pattern pt-24 pb-8 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

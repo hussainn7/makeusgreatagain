@@ -1,0 +1,60 @@
+{
+  "title": "Loops in Python",
+  "meta": { "duration": "45 min" },
+  "sections": [
+    { "type": "objectives", "items": [
+      "Understand why loops are useful",
+      "Write for loops and while loops",
+      "Combine loops with if statements"
+    ]},
+    { "type": "explanation", "heading": "Why do we need loops?", "paragraphs": [
+      "Loops let us run the same block of code multiple times without rewriting it."
+    ]},
+    { "type": "explanation", "heading": "for loop", "bullets": [
+      "for i in range(5):",
+      "    print(\"Hello!\")",
+      "Prints 'Hello!' 5 times. range(5) creates 0,1,2,3,4."
+    ]},
+    { "type": "explanation", "heading": "Looping through a list", "bullets": [
+      "fruits = [\"apple\", \"banana\", \"cherry\"]",
+      "for fruit in fruits:",
+      "    print(fruit)"
+    ]},
+    { "type": "explanation", "heading": "while loop", "bullets": [
+      "count = 1",
+      "while count <= 3:",
+      "    print(\"Counting:\", count)",
+      "    count += 1"
+    ]},
+    { "type": "explanation", "heading": "Warning about infinite loops", "paragraphs": [
+      "If the condition never becomes False, the loop runs forever!"
+    ], "bullets": [
+      "while True:",
+      "    print(\"This never stops!\")"
+    ]},
+    { "type": "explanation", "heading": "Combining loops with if", "bullets": [
+      "for num in range(6):",
+      "    if num % 2 == 0:",
+      "        print(num, \"is even\")"
+    ]},
+    { "type": "explanation", "heading": "Hands-on practice", "bullets": [
+      "Write a for loop that prints numbers 1 through 10.",
+      "Write a while loop that counts down from 5 to 1.",
+      "Loop through a list of your favorite foods and print each one."
+    ]},
+    { "type": "summary", "bullets": [
+      "for loops → best when you know how many times you’ll loop",
+      "while loops → best when you loop until a condition changes",
+      "Be careful with infinite loops"
+    ] }
+  ],
+  "quiz": {
+    "questions": [
+      { "id": "q1", "prompt": "Which loop is best for repeating something a set number of times?", "choices": ["while loop","for loop","if statement","repeat loop"], "correctIndex": 1 },
+      { "id": "q2", "prompt": "What happens if a while loop condition never becomes False?", "choices": ["The program stops immediately","It runs forever","It prints an error","It skips the loop"], "correctIndex": 1 },
+      { "id": "q3", "prompt": "What does the following code print? for i in range(3): print(\"Hi\")", "choices": ["Prints 'Hi' once","Prints 'Hi' twice","Prints 'Hi' three times","Prints nothing"], "correctIndex": 2 }
+    ]
+  }
+}
+
+

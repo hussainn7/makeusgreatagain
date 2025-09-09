@@ -13,33 +13,36 @@ function Background({ variant = 'halo' }: { variant?: BgVariant }) {
       <div className="absolute inset-0 bg-[radial-gradient(900px_600px_at_50%_-200px,rgba(56,189,248,0.10),transparent)]" />
 
       {/* Variants */}
-      {variant === 'halo' && (
-        <>
-          {/* Subtle center ring built with a conic gradient, masked to a thin band */}
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'conic-gradient(from 0deg at 50% 40%, rgba(59,130,246,0.12), rgba(34,197,94,0.06), rgba(59,130,246,0.12))',
-              maskImage:
-                'radial-gradient(50% 35% at 50% 40%, transparent 28%, black 32%, black 60%, transparent 66%)',
-              WebkitMaskImage:
-                'radial-gradient(50% 35% at 50% 40%, transparent 28%, black 32%, black 60%, transparent 66%)',
-            }}
-          />
-          {/* Faint grid only in the center (heavily masked) */}
-          <div
-            className="absolute inset-0 opacity-[0.04]"
-            style={{
-              backgroundImage:
-                'linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px)',
-              backgroundSize: '48px 48px',
-              maskImage: 'radial-gradient(60% 60% at 50% 40%, black 0%, transparent 100%)',
-              WebkitMaskImage: 'radial-gradient(60% 60% at 50% 40%, black 0%, transparent 100%)',
-            }}
-          />
-        </>
-      )}
+      {variant === 'aurora-lite' && (
+  <>
+    {/* Subtle diagonal gradient stripes */}
+    <div
+      className="absolute inset-0 opacity-[0.07]"
+      style={{
+        backgroundImage: `repeating-linear-gradient(
+          45deg,
+          rgba(56,189,248,0.15) 0px,
+          rgba(56,189,248,0.15) 2px,
+          transparent 2px,
+          transparent 6px
+        )`,
+      }}
+    />
+
+    {/* Soft noise texture for depth */}
+    <div
+      className="absolute inset-0 opacity-[0.04] mix-blend-overlay"
+      style={{
+        backgroundImage:
+          "url(\"data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ3aGl0ZSIvPjxnIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuMDUiPjxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIxIi8+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIvPjwvZz48L3N2Zz4=\")",
+      }}
+    />
+
+    {/* Light hint of gradient color for atmosphere */}
+    <div className="absolute inset-0 bg-gradient-to-tr from-cyan-400/10 via-indigo-400/5 to-emerald-400/10" />
+  </>
+)}
+
 
       {variant === 'mesh' && (
         <>

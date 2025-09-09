@@ -43,34 +43,54 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   const signOut = async () => {
+    console.log('[AuthContext] 🔄 Starting sign out process...');
+
     try {
-      // Always clear local session immediately for responsive UI
+      // Clear local session first for responsive UI
+      console.log('[AuthContext] 📤 Signing out locally...');
       await supabase.auth.signOut({ scope: 'local' });
-      // Best-effort global revocation (non-blocking for UI correctness)
+
+      // Attempt global sign out (non-blocking)
+      console.log('[AuthContext] 🌐 Attempting global sign out...');
       supabase.auth.signOut({ scope: 'global' }).catch((error) => {
-        // eslint-disable-next-line no-console
-        console.error('Global sign out error:', error);
+        console.error('[AuthContext] ⚠️ Global sign out error (non-critical):', error);
       });
     } catch (err) {
-      // eslint-disable-next-line no-console
-      console.error('Unexpected sign out error:', err);
+      console.error('[AuthContext] ❌ Sign out error:', err);
     } finally {
-      // Hard clear any lingering Supabase auth tokens from localStorage (rare edge cases)
+      // Comprehensive cleanup of all auth-related data
+      console.log('[AuthContext] 🧹 Cleaning up authentication data...');
+
       try {
+        // Clear all Supabase-related localStorage keys
         const keys = Object.keys(window.localStorage);
+        let clearedKeys = 0;
         for (const key of keys) {
-          if (key.startsWith('sb-')) {
+          if (key.startsWith('sb-') || key.includes('supabase')) {
             window.localStorage.removeItem(key);
+            clearedKeys++;
           }
         }
-        window.localStorage.removeItem('supabase.auth.token');
-      } catch {
-        // ignore storage access issues
+        console.log(`[AuthContext] 🗑️ Cleared ${clearedKeys} auth-related keys from localStorage`);
+
+        // Clear sessionStorage as well (just in case)
+        const sessionKeys = Object.keys(window.sessionStorage);
+        for (const key of sessionKeys) {
+          if (key.startsWith('sb-') || key.includes('supabase')) {
+            window.sessionStorage.removeItem(key);
+          }
+        }
+      } catch (storageError) {
+        console.error('[AuthContext] ⚠️ Storage cleanup error (non-critical):', storageError);
       }
 
+      // Reset all auth state
+      console.log('[AuthContext] 🔄 Resetting authentication state...');
       setUser(null);
       setSession(null);
       setProfile(null);
+
+      console.log('[AuthContext] ✅ Sign out process completed');
     }
   };
 

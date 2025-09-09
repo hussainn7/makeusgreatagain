@@ -63,11 +63,21 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     quizScore?: number,
     quizTotal?: number
   ) => {
+    console.log('[ProgressContext] === STARTING LESSON COMPLETION ===');
+    console.log('[ProgressContext] User object:', user);
+    console.log('[ProgressContext] User ID:', user?.id);
+    console.log('[ProgressContext] User email:', user?.email);
+
     if (!user) {
-      // eslint-disable-next-line no-console
-      console.error('[ProgressContext] No user found - cannot save to database');
-      console.log('[ProgressContext] User object:', user);
+      console.error('[ProgressContext] ❌ No user found - cannot save to database');
       console.log('[ProgressContext] Auth state check - user exists:', !!user);
+      console.log('[ProgressContext] This might be a guest user or authentication issue');
+      return;
+    }
+
+    if (!user.id) {
+      console.error('[ProgressContext] ❌ User exists but no user.id found');
+      console.log('[ProgressContext] User object structure:', Object.keys(user));
       return;
     }
 
@@ -93,6 +103,13 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
       console.log('[ProgressContext] Checking existing progress...');
 
       // First check if we already have this lesson marked complete
+      console.log('[ProgressContext] 🔍 Checking for existing progress record...');
+      console.log('[ProgressContext] Query params:', {
+        user_id: user.id,
+        course_slug: courseSlug,
+        lesson_slug: lessonSlug
+      });
+
       const { data: existing, error: checkError } = await supabase
         .from('user_progress')
         .select('id')
@@ -102,9 +119,25 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         .maybeSingle();
 
       if (checkError) {
-        console.error('[ProgressContext] Error checking existing progress:', checkError);
+        console.error('[ProgressContext] ❌ Database query failed:', {
+          error: checkError.message,
+          code: checkError.code,
+          details: checkError.details,
+          hint: checkError.hint
+        });
+
+        // Check if it's an authentication error
+        if (checkError.message?.includes('JWT') || checkError.message?.includes('auth') || checkError.code === 'PGRST301') {
+          console.error('[ProgressContext] 🚨 Authentication error detected!');
+          console.log('[ProgressContext] User might need to re-authenticate');
+          alert('Your session may have expired. Please try logging in again.');
+        }
+
         return;
       }
+
+      console.log('[ProgressContext] ✅ Database query successful');
+      console.log('[ProgressContext] Existing record:', existing);
 
       // eslint-disable-next-line no-console
       console.log('[ProgressContext] Existing progress:', existing);

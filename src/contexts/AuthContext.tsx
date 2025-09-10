@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { User, Session } from '@supabase/supabase-js';
+import type { User, Session } from '@supabase/supabase-js';
 import { supabase, getUserProfile } from '../lib/supabase';
 
 interface AuthContextType {
@@ -15,15 +15,30 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
+  const ctx = useContext(AuthContext);
+  if (!ctx) throw new Error('useAuth must be used within an AuthProvider');
+  return ctx;
 };
 
 interface AuthProviderProps {
   children: React.ReactNode;
+}
+
+const SIGNOUT_TIMEOUT_MS = 6000;
+
+function forceLocalSignOut() {
+  try {
+    // Remove Supabase tokens from localStorage/sessionStorage
+    for (const k of Object.keys(localStorage)) {
+      if (k.startsWith('sb-') && k.endsWith('-auth-token')) localStorage.removeItem(k);
+      if (k.toLowerCase().includes('supabase')) localStorage.removeItem(k);
+    }
+    for (const k of Object.keys(sessionStorage)) {
+      if (k.startsWith('sb-') || k.toLowerCase().includes('supabase')) sessionStorage.removeItem(k);
+    }
+  } catch (e) {
+    console.warn('[AuthContext] Storage cleanup warning:', e);
+  }
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
@@ -34,99 +49,80 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isPasswordRecovery, setIsPasswordRecovery] = useState(false);
 
   const refreshProfile = async () => {
-    if (user) {
-      const { data, error } = await getUserProfile(user.id);
-      if (!error && data) {
-        setProfile(data);
-      }
-    }
+    if (!user) return;
+    const { data, error } = await getUserProfile(user.id);
+    if (!error && data) setProfile(data);
   };
 
   const signOut = async () => {
     console.log('[AuthContext] 🔄 Starting sign out process...');
+    console.log('[AuthContext] 📤 Signing out locally...');
 
+    const localSignOut = supabase.auth.signOut({ scope: 'local' });
+    const timeout = new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error('signOut timeout')), SIGNOUT_TIMEOUT_MS)
+    );
+
+    let hung = false;
     try {
-      // Clear local session first for responsive UI
-      console.log('[AuthContext] 📤 Signing out locally...');
-      await supabase.auth.signOut({ scope: 'local' });
-
-      // Attempt global sign out (non-blocking)
-      console.log('[AuthContext] 🌐 Attempting global sign out...');
-      supabase.auth.signOut({ scope: 'global' }).catch((error) => {
-        console.error('[AuthContext] ⚠️ Global sign out error (non-critical):', error);
-      });
-    } catch (err) {
-      console.error('[AuthContext] ❌ Sign out error:', err);
-    } finally {
-      // Comprehensive cleanup of all auth-related data
-      console.log('[AuthContext] 🧹 Cleaning up authentication data...');
-
-      try {
-        // Clear all Supabase-related localStorage keys
-        const keys = Object.keys(window.localStorage);
-        let clearedKeys = 0;
-        for (const key of keys) {
-          if (key.startsWith('sb-') || key.includes('supabase')) {
-            window.localStorage.removeItem(key);
-            clearedKeys++;
-          }
-        }
-        console.log(`[AuthContext] 🗑️ Cleared ${clearedKeys} auth-related keys from localStorage`);
-
-        // Clear sessionStorage as well (just in case)
-        const sessionKeys = Object.keys(window.sessionStorage);
-        for (const key of sessionKeys) {
-          if (key.startsWith('sb-') || key.includes('supabase')) {
-            window.sessionStorage.removeItem(key);
-          }
-        }
-      } catch (storageError) {
-        console.error('[AuthContext] ⚠️ Storage cleanup error (non-critical):', storageError);
-      }
-
-      // Reset all auth state
-      console.log('[AuthContext] 🔄 Resetting authentication state...');
-      setUser(null);
-      setSession(null);
-      setProfile(null);
-
-      console.log('[AuthContext] ✅ Sign out process completed');
+      await Promise.race([localSignOut, timeout]);
+    } catch (e) {
+      hung = true;
+      console.warn('[AuthContext] signOut hung, forcing local cleanup:', e);
+      forceLocalSignOut();
     }
+
+    // Best-effort global revoke (non-blocking)
+    console.log('[AuthContext] 🌐 Attempting global sign out (non-blocking)...');
+    supabase.auth.signOut({ scope: 'global' }).catch(err =>
+      console.warn('[AuthContext] Global revoke failed (non-critical):', err)
+    );
+
+    // Reset local app state immediately
+    console.log('[AuthContext] 🧹 Cleaning up authentication state...');
+    setUser(null);
+    setSession(null);
+    setProfile(null);
+    setIsPasswordRecovery(false);
+
+    // Extra safety: if local signOut didn’t hang, still nuke any stray tokens
+    if (!hung) forceLocalSignOut();
+
+    console.log('[AuthContext] ✅ Sign out process completed, redirecting…');
+    // Hard navigate so a stale in-memory session can’t resurrect the UI
+    window.location.assign('/login');
   };
 
   useEffect(() => {
-    // Get initial session
+    // Bootstrap session on mount
     supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
+      setSession(session ?? null);
       setUser(session?.user ?? null);
       setLoading(false);
     });
 
-    // Listen for auth changes
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (event, session) => {
-      setSession(session);
+    // Listen for auth changes (login/logout/password recovery)
+    const { data } = supabase.auth.onAuthStateChange(async (event, session) => {
+      setSession(session ?? null);
       setUser(session?.user ?? null);
       setLoading(false);
 
-      if (event === 'PASSWORD_RECOVERY') {
-        setIsPasswordRecovery(true);
-      }
-
-      if (session?.user) {
-        // Fetch user profile
-        const { data, error } = await getUserProfile(session.user.id);
-        if (!error && data) {
-          setProfile(data);
-        }
-      } else {
+      if (event === 'PASSWORD_RECOVERY') setIsPasswordRecovery(true);
+      if (!session?.user) {
         setProfile(null);
         setIsPasswordRecovery(false);
+        return;
       }
+
+      const { data: prof, error } = await getUserProfile(session.user.id);
+      if (!error && prof) setProfile(prof);
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      try {
+        data.subscription.unsubscribe();
+      } catch {}
+    };
   }, []);
 
   const value = {

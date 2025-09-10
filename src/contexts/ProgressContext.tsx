@@ -68,6 +68,19 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
     console.log('[ProgressContext] User ID:', user?.id);
     console.log('[ProgressContext] User email:', user?.email);
 
+    // Test basic Supabase connectivity
+    console.log('[ProgressContext] 🧪 Testing Supabase connectivity...');
+    try {
+      const { data: testData, error: testError } = await supabase.auth.getUser();
+      console.log('[ProgressContext] Connectivity test result:', {
+        success: !testError,
+        hasUser: !!testData?.user,
+        error: testError?.message
+      });
+    } catch (connectError) {
+      console.error('[ProgressContext] 🚨 Connectivity test failed:', connectError);
+    }
+
     if (!user) {
       console.error('[ProgressContext] ❌ No user found - cannot save to database');
       console.log('[ProgressContext] Auth state check - user exists:', !!user);
@@ -110,13 +123,26 @@ export const ProgressProvider: React.FC<ProgressProviderProps> = ({ children }) 
         lesson_slug: lessonSlug
       });
 
-      const { data: existing, error: checkError } = await supabase
+      // Add timeout to catch hanging requests
+      const queryPromise = supabase
         .from('user_progress')
         .select('id')
         .eq('user_id', user.id)
         .eq('course_slug', courseSlug)
         .eq('lesson_slug', lessonSlug)
         .maybeSingle();
+
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Database query timeout')), 10000)
+      );
+
+      const { data: existing, error: checkError } = await Promise.race([
+        queryPromise,
+        timeoutPromise
+      ]).catch((error) => {
+        console.error('[ProgressContext] 🚨 Query promise failed:', error);
+        return { data: null, error: { message: error.message, code: 'TIMEOUT' } };
+      });
 
       if (checkError) {
         console.error('[ProgressContext] ❌ Database query failed:', {
